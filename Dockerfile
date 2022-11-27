@@ -3,14 +3,14 @@ FROM registry.access.redhat.com/ubi9/ubi-minimal:9.0.0
 
 LABEL maintainer=""
 
-ENV NGINX_VERSION=14 \
+ENV NGINX_VERSION=1.20.1 \
     PATH=$HOME/.local/bin/:$PATH
 
 # MicroDNF is recommended over YUM for Building Container Images
 # https://www.redhat.com/en/blog/introducing-red-hat-enterprise-linux-atomic-base-image
 
 RUN microdnf update -y \
-    && microdnf install -y nginx-1.20.1 \
+    && microdnf install -y nginx-${NGINX_VERSION} \
     && microdnf clean all \
     && rm -rf /var/cache/* /var/log/dnf* /var/log/yum.*
 
@@ -18,7 +18,8 @@ RUN mkdir /var/cache/nginx \
     && chown -R nginx:0 /var/log/nginx/ /var/cache/nginx /usr/share/nginx \
     && chmod -R "g+rwX" /var/log/nginx/ /var/cache/nginx /usr/share/nginx
 
-RUN echo "nginx version: $(nginx -v)"
+RUN echo "nginx version: $(nginx -v)"\
+    && microdnf repolist
 
 USER 1001
 CMD ["nginx", "-g", "daemon off;"]
