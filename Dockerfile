@@ -18,7 +18,7 @@ RUN mkdir /var/cache/nginx \
     && chown -R nginx:0 /var/log/nginx/ /var/cache/nginx /usr/share/nginx \
     && chmod -R "g+rwX" /var/log/nginx/ /var/cache/nginx /usr/share/nginx
 
-RUN nginx -V
+RUN echo "Nginx Version - $(nginx -V)"
 
 # USER 1001
 CMD ["nginx", "-g", "daemon off;"]
