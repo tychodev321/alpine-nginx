@@ -10,7 +10,7 @@ ENV NGINX_VERSION=14 \
 # https://www.redhat.com/en/blog/introducing-red-hat-enterprise-linux-atomic-base-image
 
 RUN microdnf update -y \
-    && microdnf install -y nginx \
+    && microdnf install -y nginx-1.20.1 \
     && microdnf clean all \
     && rm -rf /var/cache/* /var/log/dnf* /var/log/yum.*
 
