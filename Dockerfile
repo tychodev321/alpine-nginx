@@ -21,6 +21,6 @@ RUN mkdir /var/cache/nginx \
 RUN echo "nginx version: $(nginx -v)"\
     && microdnf repolist
 
-USER 1001
+# USER 1001
 CMD ["nginx", "-g", "daemon off;"]
 # CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
