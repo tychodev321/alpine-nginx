@@ -1,2 +1,2 @@
-# ubi-nginx
+# ubuntu-nginx
 
