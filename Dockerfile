@@ -6,7 +6,7 @@ ENV NGINX_VERSION=1.20.1 \
     PATH=$HOME/.local/bin/:$PATH
 
 RUN apt update -y && apt upgrade -y \
-    && apt install -y nginx-${NGINX_VERSION} \
+    && apt install -y nginx \
     && apt clean -y \
     && rm -rf /var/lib/apt/lists/*
 
