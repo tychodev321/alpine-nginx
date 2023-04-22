@@ -10,9 +10,9 @@ RUN apt update -y && apt upgrade -y \
     && apt clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /var/cache/nginx \
-    && chown -R nginx:0 /var/log/nginx/ /var/cache/nginx /usr/share/nginx \
-    && chmod -R "g+rwX" /var/log/nginx/ /var/cache/nginx /usr/share/nginx
+# RUN mkdir /var/cache/nginx \
+#     && chown -R nginx:0 /var/log/nginx/ /var/cache/nginx /usr/share/nginx \
+#     && chmod -R "g+rwX" /var/log/nginx/ /var/cache/nginx /usr/share/nginx
 
 RUN echo "nginx version: $(nginx -v)"
 
