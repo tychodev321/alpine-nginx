@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/nginx/tags
-FROM nginx:mainline-alpine3.18-slim
+FROM nginx:1.25.2-alpine-slim
 
 LABEL maintainer=""
 
