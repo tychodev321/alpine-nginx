@@ -1,18 +1,9 @@
-FROM ubuntu:22.10
+# https://hub.docker.com/_/nginx/tags
+FROM nginx:mainline-alpine3.18-slim
 
 LABEL maintainer=""
 
-ENV NGINX_VERSION=1.20.1 \
-    PATH=$HOME/.local/bin/:$PATH
-
-RUN apt update -y && apt upgrade -y \
-    && apt install -y nginx \
-    && apt clean -y \
-    && rm -rf /var/lib/apt/lists/*
-
-# RUN mkdir /var/cache/nginx \
-#     && chown -R nginx:0 /var/log/nginx/ /var/cache/nginx /usr/share/nginx \
-#     && chmod -R "g+rwX" /var/log/nginx/ /var/cache/nginx /usr/share/nginx
+ENV PATH=$HOME/.local/bin/:$PATH
 
 RUN echo "nginx version: $(nginx -v)"
 
